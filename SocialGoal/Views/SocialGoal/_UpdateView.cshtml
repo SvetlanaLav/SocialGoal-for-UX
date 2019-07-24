@@ -112,7 +112,7 @@ else
                 {
                     
                     <div class="progress progress-striped active" style="height:25px;width:150px;border:1px solid #B6B4B4;">
-                        <div class="bar" style="color:Black;width:@Html.Action("GoalProgress", "Goal", new { id = item.UpdateId })%;">
+                        <div class="bar" style="color:Black;width:@Html.Action("GoalProgress", "SocialGoal", new { id = item.UpdateId })%;">
                            @if (item.status < Model.Target)
                            {<span style="float:left;line-height:25px;padding-left:10px;" >@item.status/@Model.Target</span>}
                            else

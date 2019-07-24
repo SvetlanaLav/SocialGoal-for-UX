@@ -7,7 +7,7 @@
 }
 <div>
 <div class="span5">
-    @using (Html.BeginForm("Create", "Goal", FormMethod.Post, new { @id = "form" }))
+    @using (Html.BeginForm("Create", "SocialGoal", FormMethod.Post, new { @id = "form" }))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)

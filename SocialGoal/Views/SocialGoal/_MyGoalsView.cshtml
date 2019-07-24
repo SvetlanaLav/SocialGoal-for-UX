@@ -17,9 +17,9 @@
                         
                     </td>
                     <td class="span2" align="right">
-                        <a data-toggle="modal" href="#" id ="edit" onclick ="window.location.href='@Url.Action("Edit", "Goal", new { id = item.GoalId })'"@*editGet('@item.GoalId')*@>
+                        <a data-toggle="modal" href="#" id ="edit" onclick ="window.location.href='@Url.Action("Edit", "SocialGoal", new { id = item.GoalId })'"@*editGet('@item.GoalId')*@>
                             <span rel="tooltip" title="Edit goals"><i class=" icon-edit"></i></span></a>
-                        <a href="#" id="delete" onclick ="window.location.href='@Url.Action("Delete", "Goal", new { id = item.GoalId })'"@*"DeleteGet('@item.GoalId')"*@>
+                        <a href="#" id="delete" onclick ="window.location.href='@Url.Action("Delete", "SocialGoal", new { id = item.GoalId })'"@*"DeleteGet('@item.GoalId')"*@>
                             <span rel="tooltip" title="Delete goals"><i class="icon-trash"></i></span>
                     </td>
                 </tr>
@@ -29,6 +29,6 @@
     </div>
 </div>
 @if (Model.Count() > 10)
-{ 
-    @Html.ActionLink("See All", "GoalList", "Goal", new { filterBy = "My Goals" }, new { @style = "float:right;" })
+{
+    @Html.ActionLink("See All", "GoalList", "SocialGoal", new { filterBy = "My Goals" }, new { @style = "float:right;" })
 }

@@ -32,7 +32,7 @@ foreach (var item in Model.Notification)
             <td class="span10">
                 <div>
                     @Html.ActionLink(item.UserName, "UserProfile", "Account", new { id = item.UserId }, null)
-                    Created @Html.ActionLink(item.GoalName/*.LimitLength(15)*/, "Index", "Goal", new { id = item.GoalId }, null)
+                    Created @Html.ActionLink(item.GoalName/*.LimitLength(15)*/, "Index", "SocialGoal", new { id = item.GoalId }, null)
                 </div>
                 <small style="float: left; color: darkGray; margin-top: 5px;">@item.NotificationDate
                 </small>
@@ -56,9 +56,9 @@ foreach (var item in Model.Notification)
                 <td class="span10">
                     <div>
                         @Html.ActionLink(item.UserName, "UserProfile", "Account", new { id = item.UserId }, null)
-                        Updated @Html.ActionLink(item.Updatemsg/*.LimitLength(15)*/, "Index", "Goal", new { id = item.GoalId }, null)
+                        Updated @Html.ActionLink(item.Updatemsg/*.LimitLength(15)*/, "Index", "SocialGoal", new { id = item.GoalId }, null)
                         On Goal
-                        @Html.ActionLink(item.GoalName/*.LimitLength(15)*/, "Index", "Goal", new { id = item.GoalId }, null)
+                        @Html.ActionLink(item.GoalName/*.LimitLength(15)*/, "Index", "SocialGoal", new { id = item.GoalId }, null)
                         <br />
                     </div>
                     <small style="float: left; color: darkGray; margin-top: 5px;">@item.NotificationDate
@@ -83,8 +83,8 @@ foreach (var item in Model.Notification)
                 <div>
                     @Html.ActionLink(item.UserName, "UserProfile", "Account", new { id = item.UserId }, null)
                     @*Commented "@item.CommentText.LimitLength(15)" on Update @Html.ActionLink(item.Updatemsg.LimitLength(15), "Index", "Goal", new { id = item.GoalId }, null)*@
-                    Commented "@item.CommentText" on Update @Html.ActionLink(item.Updatemsg, "Index", "Goal", new { id = item.GoalId }, null)
-                    of Goal @Html.ActionLink(item.GoalName/*.LimitLength(15)*/, "Index", "Goal", new { id = item.GoalId }, null)
+                    Commented "@item.CommentText" on Update @Html.ActionLink(item.Updatemsg, "Index", "SocialGoal", new { id = item.GoalId }, null)
+                    of Goal @Html.ActionLink(item.GoalName/*.LimitLength(15)*/, "Index", "SocialGoal", new { id = item.GoalId }, null)
                 </div>
                 <small style="float: left; color: darkGray; margin-top: 5px;">@item.NotificationDate
                 </small>
@@ -148,7 +148,7 @@ foreach (var item in Model.Notification)
             <td class="span10">
                 <div>
                     @Html.ActionLink(item.UserName, "UserProfile", "Account", new { id = item.UserId }, null)
-                    is Following the Goal @Html.ActionLink(item.GoalName/*.LimitLength(15)*/, "Index", "Goal", new { id = item.GoalId }, null)
+                    is Following the Goal @Html.ActionLink(item.GoalName/*.LimitLength(15)*/, "Index", "SocialGoal", new { id = item.GoalId }, null)
                 </div>
                 <small style="float: left; color: darkGray; margin-top: 5px;">@item.NotificationDate
                 </small>

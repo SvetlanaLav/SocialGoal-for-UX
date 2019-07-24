@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = Model.GoalName;
     ViewContext.Controller.ViewBag.IncludeJqplot = true;
-    Layout = "~/Views/Shared/_GoalLayout.cshtml";
+    Layout = "~/Views/SocialGoal/_GoalLayout.cshtml";
     string goalstatus = Model.GoalStatus.GoalStatusType;
 }
 @Html.Hidden("Targt", Model.Target)

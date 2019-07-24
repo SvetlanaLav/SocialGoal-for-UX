@@ -3,7 +3,7 @@
 @{
 	ViewBag.Title = Model.GoalName;
 	ViewContext.Controller.ViewBag.IncludeJqplot = true;
-	Layout = "~/Views/Shared/_GoalLayout.cshtml";
+	Layout = "~/Views/SocialGoal/_GoalLayout.cshtml";
     string goalstatus = Model.GoalStatus.GoalStatusType;
 }
 
@@ -38,9 +38,9 @@
         <h4 style="margin-left:10px;">@Model.GoalName
             @if (User.Identity.GetUserId() == Model.UserId)
             {
-                <a href="#" id ="editBtn" onclick ="window.location.href='@Url.Action("Edit", "Goal", new { id = Model.GoalId })'" style="padding-right:5px;">
+                <a href="#" id ="editBtn" onclick ="window.location.href='@Url.Action("Edit", "SocialGoal", new { id = Model.GoalId })'" style="padding-right:5px;">
                     <span rel="tooltip" title="Edit goal"><i class="icon-edit"></i></span></a>
-                <a href="#" id="delete" onclick="window.location.href='@Url.Action("Delete", "Goal", new { id = Model.GoalId })'">
+                <a href="#" id="delete" onclick="window.location.href='@Url.Action("Delete", "SocialGoal", new { id = Model.GoalId })'">
                     <span rel="tooltip" title="Delete goal"><i class="icon-trash"></i></span></a>
             }
         </h4>
@@ -146,7 +146,7 @@
     }
     <div id="divupdate" style="margin: 0px;">
         <h5 style="margin-left:15px;">Latest Updates</h5>
-        @{ Html.RenderAction("DisplayUpdates", "Goal", Model.GoalId); }
+        @{ Html.RenderAction("DisplayUpdates", "SocialGoal", Model.GoalId); }
     </div>
     <div id="divInviteLayer" class="jqmWindow">
         <div id="handle" style="float: right">
@@ -168,7 +168,7 @@
     <!--update status section and invite user section -->
     <div class="span12" style="float: right;">
         <!--invite user section -->
-        @Html.Action("InviteUser", "Goal", new { id = Model.GoalId })
+        @Html.Action("InviteUser", "SocialGoal", new { id = Model.GoalId })
         <!--invite section ends -->
         <!--update status section -->
         <div class="well span6" style="min-height: 202px;">

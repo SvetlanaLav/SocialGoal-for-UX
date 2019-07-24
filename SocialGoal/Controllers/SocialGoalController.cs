@@ -16,7 +16,7 @@ using Microsoft.AspNet.Identity;
 namespace SocialGoal.Web.Controllers
 {
     [Authorize]
-    public class GoalController : Controller
+    public class SocialGoalController : Controller
     {
         private readonly IGoalService goalService;
         private readonly IMetricService metricService;
@@ -38,7 +38,7 @@ namespace SocialGoal.Web.Controllers
             set { userMailer = value; }
         }
 
-        public GoalController(IGoalService goalService, IMetricService metricService, IFocusService focusService, ISupportService supportService, IUpdateService updateService, ICommentService commentService, IUserService userService, ISecurityTokenService securityTokenService, ISupportInvitationService supportInvitationService, IGoalStatusService goalStatusService, ICommentUserService commentUserService, IUpdateSupportService updateSupportService)
+        public SocialGoalController(IGoalService goalService, IMetricService metricService, IFocusService focusService, ISupportService supportService, IUpdateService updateService, ICommentService commentService, IUserService userService, ISecurityTokenService securityTokenService, ISupportInvitationService supportInvitationService, IGoalStatusService goalStatusService, ICommentUserService commentUserService, IUpdateSupportService updateSupportService)
         {
             this.goalService = goalService;
             this.supportInvitationService = supportInvitationService;

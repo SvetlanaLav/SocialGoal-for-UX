@@ -154,7 +154,7 @@ namespace SocialGoal.Tests.Controllers
                 RoleName = Enum.GetName(typeof(UserRoles), applicationUser.RoleId)
             };
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             
             var testTicket = new FormsAuthenticationTicket(
                 1,
@@ -236,7 +236,7 @@ namespace SocialGoal.Tests.Controllers
                 false,
                 userContext.ToString());
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
 
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
@@ -298,7 +298,7 @@ namespace SocialGoal.Tests.Controllers
 
             metricRepository.Setup(x => x.GetAll()).Returns(fakeMatrices);
             GoalFormModel goal = new GoalFormModel();
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             PartialViewResult result = controller.Create() as PartialViewResult;
             Assert.IsNotNull(result, "View Result is null");
             Assert.IsInstanceOf(typeof(GoalFormModel),
@@ -309,7 +309,7 @@ namespace SocialGoal.Tests.Controllers
         [Test]
         public void Create_Goal()
         {
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             // Act
             Mapper.CreateMap<GoalFormModel, Goal>();
@@ -363,7 +363,7 @@ namespace SocialGoal.Tests.Controllers
 
             metricRepository.Setup(x => x.GetAll()).Returns(fakeMatrices);
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             Mapper.CreateMap<Goal, GoalFormModel>();
             ViewResult result = controller.Edit(1) as ViewResult;
             Assert.IsNotNull(result, "View Result is null");
@@ -377,7 +377,7 @@ namespace SocialGoal.Tests.Controllers
         public void Edit_Goal_Post()
         {
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             Mapper.CreateMap<GoalFormModel, Goal>();
 
@@ -414,7 +414,7 @@ namespace SocialGoal.Tests.Controllers
                 GoalStatusId = 1
             };
             goalRepository.Setup(x => x.GetById(1)).Returns(goal);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             string result = controller.GoalStatus(1, 1) as string;
             Assert.AreEqual("InProgress", result);
         }
@@ -439,7 +439,7 @@ namespace SocialGoal.Tests.Controllers
 
             goalRepository.Setup(x => x.GetById(1)).Returns(fake);
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             ViewResult result = controller.Delete(1) as ViewResult;
             Assert.IsNotNull(result, "View Result is null");
             Assert.IsInstanceOf(typeof(Goal),
@@ -461,7 +461,7 @@ namespace SocialGoal.Tests.Controllers
 
             };
             goalRepository.Setup(x => x.GetById(1)).Returns(goal);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             var result = controller.DeleteConfirmed(1) as RedirectToRouteResult;
             Assert.AreEqual("Index", result.RouteValues["action"]);
 
@@ -490,7 +490,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
@@ -556,7 +556,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
@@ -612,7 +612,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
@@ -685,7 +685,7 @@ namespace SocialGoal.Tests.Controllers
           
           }.AsEnumerable();
             supportRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<Support, bool>>>())).Returns(fake);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             ViewResult result = controller.Supporters(1) as ViewResult;
             Assert.IsNotNull(result);
             Assert.IsInstanceOf(typeof(GoalSupporterViewModel), result.ViewData.Model, "Wrong View Model");
@@ -713,7 +713,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
@@ -776,7 +776,7 @@ namespace SocialGoal.Tests.Controllers
         [Test]
         public void Save_Update_Update_Mandatory_Test()
         {
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             // The MVC pipeline doesn't run, so binding and validation don't run. 
             controller.ModelState.AddModelError("", "mock error message");
@@ -811,7 +811,7 @@ namespace SocialGoal.Tests.Controllers
 
             userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(applicationUser);
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
@@ -873,7 +873,7 @@ namespace SocialGoal.Tests.Controllers
             commentUserRepository.Setup(x => x.Get(It.IsAny<Expression<Func<CommentUser, bool>>>())).Returns(cmtuser);
             ApplicationUser applicationUser = getApplicationUser();
             userRepository.Setup(x => x.GetById("402bd590-fdc7-49ad-9728-40efbfe512ec")).Returns(applicationUser);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             Mapper.CreateMap<Comment, CommentsViewModel>();
             PartialViewResult rslt = controller.DisplayComments(1) as PartialViewResult;
@@ -905,7 +905,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
 
@@ -955,7 +955,7 @@ namespace SocialGoal.Tests.Controllers
           }.AsEnumerable();
 
             commentRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<Comment, bool>>>())).Returns(cmnt);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             JsonResult count = controller.DisplayCommentCount(1) as JsonResult;
             Assert.IsNotNull(count);
             Assert.AreEqual(3, count.Data);
@@ -984,7 +984,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
@@ -1048,7 +1048,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
 
@@ -1089,7 +1089,7 @@ namespace SocialGoal.Tests.Controllers
                 GoalId = 1
             };
             goalRepository.Setup(x => x.GetById(1)).Returns(goal);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             PartialViewResult result = controller.SupportInvitation(1) as PartialViewResult;
             Assert.IsNotNull(result);
             Assert.IsInstanceOf(typeof(Goal),
@@ -1120,7 +1120,7 @@ namespace SocialGoal.Tests.Controllers
 
             userRepository.Setup(x => x.Get(It.IsAny<Expression<Func<ApplicationUser, bool>>>())).Returns(applicationUser);
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
             controllerContext.SetupGet(p => p.HttpContext.Request.IsAuthenticated).Returns(true);
@@ -1178,7 +1178,7 @@ namespace SocialGoal.Tests.Controllers
                 GoalId = 1
             };
             goalRepository.Setup(x => x.GetById(1)).Returns(goal);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             JsonResult reslt = controller.GetGoalReport(1) as JsonResult;
             Assert.IsNotNull(reslt);
 
@@ -1195,7 +1195,7 @@ namespace SocialGoal.Tests.Controllers
           
           }.AsEnumerable();
             goalRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<Goal, bool>>>())).Returns(fake);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             // Act
             ViewResult result = controller.ListOfGoals() as ViewResult;
@@ -1215,7 +1215,7 @@ namespace SocialGoal.Tests.Controllers
           
           }.AsEnumerable();
             goalRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<Goal, bool>>>())).Returns(fake);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             PartialViewResult result = controller.Goalslist(0, 0) as PartialViewResult;
             Assert.IsNotNull(result);
             Assert.IsInstanceOf(typeof(IEnumerable<Goal>), result.ViewData.Model, "Wrong View Model");
@@ -1236,7 +1236,7 @@ namespace SocialGoal.Tests.Controllers
             };
             updateRepository.Setup(x => x.GetById(1)).Returns(update);
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             Mapper.CreateMap<Update, UpdateFormModel>();
             PartialViewResult result = controller.EditUpdate(1) as PartialViewResult;
             Assert.IsNotNull(result, "View Result is null");
@@ -1270,7 +1270,7 @@ namespace SocialGoal.Tests.Controllers
 
 
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
 
             principal.SetupGet(x => x.Identity.Name).Returns("adarsh");
             controllerContext.SetupGet(x => x.HttpContext.User).Returns(principal.Object);
@@ -1344,7 +1344,7 @@ namespace SocialGoal.Tests.Controllers
             };
             updateRepository.Setup(x => x.GetById(1)).Returns(update);
 
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             PartialViewResult result = controller.DeleteUpdate(1) as PartialViewResult;
             Assert.IsNotNull(result, "View Result is null");
             Assert.IsInstanceOf(typeof(Update),
@@ -1366,7 +1366,7 @@ namespace SocialGoal.Tests.Controllers
 
             };
             updateRepository.Setup(x => x.GetById(1)).Returns(update);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             var result = controller.DeleteConfirmedUpdate(1) as RedirectToRouteResult;
             Assert.AreEqual("Index", result.RouteValues["action"]);
 
@@ -1386,7 +1386,7 @@ namespace SocialGoal.Tests.Controllers
           }.AsEnumerable();
 
             updateSupportRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<UpdateSupport, bool>>>())).Returns(updtsprt);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             int count = controller.NoOfSupports(1);
             Assert.IsNotNull(count);
             Assert.AreEqual("3", count.ToString());
@@ -1407,7 +1407,7 @@ namespace SocialGoal.Tests.Controllers
           }.AsEnumerable();
 
             updateSupportRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<UpdateSupport, bool>>>())).Returns(updtsprt);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             JsonResult count = controller.DisplayUpdateSupportCount(1) as JsonResult;
             Assert.IsNotNull(count);
             Assert.AreEqual(3, count.Data);
@@ -1431,7 +1431,7 @@ namespace SocialGoal.Tests.Controllers
           
           }.AsEnumerable();
             updateSupportRepository.Setup(x => x.GetMany(It.IsAny<Expression<Func<UpdateSupport, bool>>>())).Returns(fake);
-            GoalController controller = new GoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
+            SocialGoalController controller = new SocialGoalController(goalService, metricService, focusService, supportService, updateService, commentService, userService, securityTokenService, supportInvitationService, goalStatusService, commentUserService, updateSupportService);
             PartialViewResult result = controller.SupportersOfUpdate(1) as PartialViewResult;
             Assert.IsNotNull(result);
             Assert.IsInstanceOf(typeof(UpdateSupportersViewModel), result.ViewData.Model, "Wrong View Model");

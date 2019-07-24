@@ -2,7 +2,7 @@
 @model SocialGoal.Web.ViewModels.SearchViewModel
 @{
     ViewBag.Title = "SearchResult";
-    Layout = "~/Views/Shared/_PageLayout.cshtml";
+    Layout = "~/Views/SocialGoal/_PageLayout.cshtml";
 }
 
 <div class="well"><h4>Search results for "@Model.SearchText" are..</h4></div>
@@ -19,7 +19,7 @@
      { 
          <div>
             <div style="position: relative">
-                <strong>@Html.ActionLink(item.GoalName, "Index", "Goal", new { id = item.GoalId }, null)</strong>
+                <strong>@Html.ActionLink(item.GoalName, "Index", "SocialGoal", new { id = item.GoalId }, null)</strong>
                 <div class="support" id="support@(item.GoalId)">
                     @if (item.Supported == true)
                     {
