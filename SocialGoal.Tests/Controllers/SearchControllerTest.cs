@@ -89,23 +89,8 @@ namespace SocialGoal.Tests.Controllers
             Assert.IsNotNull(result, "View Result is null");
             Assert.IsInstanceOf(typeof(SearchViewModel),
             result.ViewData.Model, "Wrong View Model");
-
-
-
+            
         }
         
-        [Test]
-        public void MyTest1()
-        {
-            var value = 2;
-            Assert.True(IsOdd(value));
-        }
-        bool IsOdd(int num)
-        {
-            return num % 2 == 1;
-        }
-
-
-
     }
 }
