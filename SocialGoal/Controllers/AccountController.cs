@@ -19,6 +19,7 @@ using SocialGoal.Properties;
 using System.Net;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using System.Threading.Tasks;
 using SocialGoal.Web.Helpers;
 
 namespace SocialGoal.Web.Controllers

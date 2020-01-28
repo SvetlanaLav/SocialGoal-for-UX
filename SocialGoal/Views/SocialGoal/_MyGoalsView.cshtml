@@ -20,7 +20,7 @@
                         <a data-toggle="modal" href="#" id ="edit" onclick ="window.location.href='@Url.Action("Edit", "SocialGoal", new { id = item.GoalId })'"@*editGet('@item.GoalId')*@>
                             <span rel="tooltip" title="Edit goals"><i class=" icon-edit"></i></span></a>
                         <a href="#" id="delete" onclick ="window.location.href='@Url.Action("Delete", "SocialGoal", new { id = item.GoalId })'"@*"DeleteGet('@item.GoalId')"*@>
-                            <span rel="tooltip" title="Delete goals"><i class="icon-trash"></i></span>
+                            <span rel="tooltip" title="Delete goals"><i class="icon-trash"></i></span></a>
                     </td>
                 </tr>
             </table>
